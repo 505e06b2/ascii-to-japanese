@@ -1,0 +1,47 @@
+<html>
+<head>
+	<title>Katakana</title>
+	<meta charset="utf8">
+	<script>
+	
+		const table = {
+			a: "タ",
+			b: "ヨ",
+			c: "く",
+			d: "ワ",
+			e: "モ",
+			f: "下",
+			g: "ム",
+			h: "サ",
+			i: "エ",
+			j: "ノ",
+			k: "に",
+			l: "レ",
+			m: "ホ",
+			n: "ヘ",
+			o: "ロ",
+			p: "ヤ",
+			q: "ヰ",
+			r: "マ",
+			s: "ラ",
+			t: "イ",
+			u: "ひ",
+			v: "ソ",
+			w: "ツ",
+			x: "メ",
+			z: "こ",
+			" ": " "
+		};
+	
+		function katakana(input) {
+			var out = "";
+			for(var i = 0; i < input.length; i++) out += table[input[i].toLowerCase()];
+			return out;
+		}
+	</script>
+</head>
+<body>
+	<textarea placeholder="Input" onkeyup="document.getElementById('out').innerHTML = katakana(this.value)"></textarea>
+	<div id="out"></div>
+</body>
+</html>
