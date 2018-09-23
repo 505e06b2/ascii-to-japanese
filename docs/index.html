@@ -3,7 +3,6 @@
 	<title>Katakana</title>
 	<meta charset="utf8">
 	<script>
-	
 		const table = {
 			a: "タ",
 			b: "ヨ",
@@ -35,7 +34,10 @@
 	
 		function katakana(input) {
 			var out = "";
-			for(var i = 0; i < input.length; i++) out += table[input[i].toLowerCase()];
+			for(var i = 0; i < input.length; i++) {
+				const converted = table[input[i].toLowerCase()];
+				out += (converted) ? converted : input[i];
+			}
 			return out;
 		}
 	</script>
