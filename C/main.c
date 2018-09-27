@@ -16,7 +16,7 @@ void sendShortcut(char c) {
 	sendKey(c, 1);
 	sendKey(c, 0);
 	sendKey(VK_CONTROL, 0);
-	Sleep(16);
+	Sleep(32);
 }
 
 unsigned char *toUTF8(const wchar_t *str, size_t *size) { //you must free memory after using
@@ -68,7 +68,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 				for(unsigned int i = 0; i < clipboard_len; i++) {
 					newClip_mem[i] = (clipboard[i] <= 127 && clipboard[i] >= 32) ? table[clipboard[i]] : clipboard[i];
 				}
-			log_file(clipboard, newClip_mem, clipboard_len-1);
+			//log_file(clipboard, newClip_mem, clipboard_len-1); // <=== LOG TO FILE
 			GlobalUnlock(newClip_hwdl);
 		}
 		OpenClipboard(NULL);
@@ -81,7 +81,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 		sendKey(VK_RETURN, 1);
 		sendKey(VK_RETURN, 0);
 		
-		sendKey(VK_CONTROL, 1);
+		sendKey(VK_CONTROL, 1); //or for some reason it was perma held down
 		sendKey(VK_CONTROL, 0);
 		
 		return 1;
