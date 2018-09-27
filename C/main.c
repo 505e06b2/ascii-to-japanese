@@ -80,6 +80,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam) {
 		sendShortcut('V');
 		sendKey(VK_RETURN, 1);
 		sendKey(VK_RETURN, 0);
+		Sleep(32);
 		
 		sendKey(VK_CONTROL, 1); //or for some reason it was perma held down
 		sendKey(VK_CONTROL, 0);
